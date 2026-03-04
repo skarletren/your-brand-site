@@ -1,0 +1,1460 @@
+index.html<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>YOUR BRAND* — Modern High-Street Fashion</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+
+    tailwind.config = {
+
+      theme: {
+
+        extend: {
+
+          colors: {
+
+            smoke: '#F2F2F2',
+
+          },
+
+          fontFamily: {
+
+            sans: ['Inter', 'sans-serif'],
+
+          },
+
+          letterSpacing: {
+
+            'premium': '0.25em',
+
+            'wide': '0.15em',
+
+            'tight-brand': '0.1em',
+
+          },
+
+        },
+
+      },
+
+    }
+
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+
+    body { font-family: 'Inter', sans-serif; letter-spacing: 0.15em; }
+
+    .letter-spacing-premium { letter-spacing: 0.25em; }
+
+    .letter-spacing-wide { letter-spacing: 0.15em; }
+
+    .font-heading { font-family: 'Tenor Sans', sans-serif; letter-spacing: 0.18em; }
+
+    .hero-slide { opacity: 0; transition: opacity 0.4s ease-in-out; }
+
+    .hero-slide.active { opacity: 1; }
+
+    .product-hover-img { opacity: 0; transition: opacity 0.5s ease-in-out; }
+
+    .group:hover .product-hover-img { opacity: 1; }
+
+    @keyframes size-shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-2px); }
+      50% { transform: translateX(2px); }
+      75% { transform: translateX(-1px); }
+    }
+
+    .size-shake {
+      animation: size-shake 0.25s ease-in-out 0s 2;
+    }
+
+  </style>
+
+</head>
+
+<body class="bg-white text-black antialiased pb-20 md:pb-0">
+
+  <!-- Fixed Navbar - Mobile (logo only) -->
+
+  <nav class="md:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-black/5 flex items-center justify-center h-14">
+
+    <a href="#" class="text-base font-heading tracking-[0.18em]">YOUR BRAND*</a>
+
+  </nav>
+
+
+
+  <!-- Fixed Navbar - Desktop -->
+
+  <nav class="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-black/5">
+
+    <div class="w-full max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
+
+      <div class="flex items-center gap-10">
+
+        <div class="relative group">
+
+          <a href="#" class="text-[11px] font-medium tracking-[0.22em] hover:opacity-70 transition" data-scroll-target="#gallery">SHOP</a>
+
+          <div class="absolute left-0 mt-3 w-52 bg-white border border-black/5 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+
+            <a href="#" class="block px-4 py-3 text-[11px] tracking-[0.18em] hover:bg-smoke">ALL COLLECTIONS</a>
+
+            <a href="#" class="block px-4 py-3 text-[11px] tracking-[0.18em] hover:bg-smoke">NEW ARRIVALS</a>
+
+            <a href="#" class="block px-4 py-3 text-[11px] tracking-[0.18em] hover:bg-smoke">ARCHIVE</a>
+
+          </div>
+
+        </div>
+
+        <a href="#" class="text-[11px] font-medium tracking-[0.22em] hover:opacity-70 transition" data-scroll-target="#lookbook">LOOKBOOK</a>
+
+      </div>
+
+      <a href="#" class="text-xl font-heading tracking-[0.18em]">YOUR BRAND*</a>
+
+      <div class="flex items-center gap-10">
+
+        <button type="button" id="search-toggle" class="text-[11px] font-medium tracking-[0.22em] hover:opacity-70 transition">SEARCH</button>
+
+        <button type="button" id="bag-link-desktop" class="text-[11px] font-medium tracking-[0.22em] hover:opacity-70 transition">BAG (0)</button>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- Search Overlay -->
+
+  <div id="search-overlay" class="fixed top-0 left-0 right-0 z-40 bg-white border-b border-black/10 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-300">
+
+    <div class="max-w-4xl mx-auto px-6 pt-6 pb-5 flex items-center justify-between gap-4">
+
+      <div class="flex-1 flex items-center gap-3 border-b border-black/60 pb-2">
+
+        <span class="text-xs tracking-[0.18em]">SEARCH</span>
+
+        <input type="text" placeholder="TYPE TO SEARCH" class="flex-1 bg-transparent text-xs tracking-[0.18em] focus:outline-none placeholder-black/30" />
+
+      </div>
+
+      <button type="button" id="search-close" class="text-[11px] tracking-[0.18em] hover:opacity-70">
+
+        CLOSE
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Hero Section -->
+
+  <section id="top" class="flex flex-col md:flex-row min-h-screen pt-16 md:pt-0">
+
+    <div class="w-full md:w-[65%] h-[50vh] md:h-screen relative bg-smoke flex-shrink-0 overflow-hidden" data-aos="fade-up">
+
+      <div class="absolute inset-0">
+
+        <img src="feat1.jpg" alt="" class="hero-slide active absolute inset-0 w-full h-full object-cover object-center">
+
+        <img src="feat2.jpg" alt="" class="hero-slide absolute inset-0 w-full h-full object-cover object-center">
+
+        <img src="feat3.jpg" alt="" class="hero-slide absolute inset-0 w-full h-full object-cover object-center">
+
+        <img src="feat4.jpg" alt="" class="hero-slide absolute inset-0 w-full h-full object-cover object-center">
+
+      </div>
+
+      <div class="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent pointer-events-none"></div>
+
+    </div>
+
+    <div class="w-full md:w-[35%] flex flex-col items-center justify-center bg-white p-8 md:p-12" data-aos="fade-up" data-aos-delay="150">
+
+      <h1 class="text-4xl md:text-5xl font-heading tracking-[0.3em] mb-8 text-center md:text-left">NEW ARRIVALS</h1>
+
+      <a href="#" class="inline-block border-2 border-black px-10 py-3 text-xs font-medium tracking-[0.25em] hover:bg-black hover:text-white transition">
+
+        DISCOVER
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Product Gallery -->
+
+  <section id="gallery" class="py-20 md:py-32 bg-smoke">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+
+        <button type="button"
+
+                class="group block text-left w-full"
+
+                data-product="hoodie"
+
+                data-name="ARCHIVE OVERSIZED HOODIE"
+
+                data-price="€49.00 "
+
+                data-images="Hoodies.webp,Hoodies1.webp,Hoodies2.webp,Hoodies3.webp"
+
+                data-description="Oversized fleece hoodie with structured shoulders, ribbed cuffs and minimal YOUR BRAND* chest detail. Designed for everyday layering."
+
+                data-category="ARCHIVE"
+
+                data-aos="fade-up">
+
+          <div class="relative aspect-[3/4] overflow-hidden mb-4">
+
+            <img src="Hoodies.webp" alt="ARCHIVE OVERSIZED HOODIE" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+
+            <img src="Hoodies1.webp" alt="" class="product-hover-img absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+
+            <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 bg-white/90 backdrop-blur px-3 py-2 flex items-center justify-between gap-2 transition-transform duration-300">
+
+              <span class="text-[10px] tracking-[0.18em]">QUICK ADD</span>
+
+              <div class="flex gap-1">
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">S</span>
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">M</span>
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">L</span>
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">XL</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="text-xs tracking-[0.2em] font-heading">ARCHIVE OVERSIZED HOODIE</p>
+
+          <p class="mt-1 text-[10px] tracking-[0.15em] text-black/60">€49.00 EUR</p>
+
+        </button>
+
+
+
+        <button type="button"
+
+                class="group block text-left w-full"
+
+                data-product="jeans"
+
+                data-name="SIGNATURE FLARED DENIM"
+
+                data-price="€79.00 EUR"
+
+                data-images="flared.webp,flared1.webp,flared2.webp,flared3.webp"
+
+                data-description="High-rise flared denim with elongating lines and cropped hem. Cut from rigid cotton to hold shape with every wear."
+
+                data-category="BOTTOMS"
+
+                data-aos="fade-up"
+
+                data-aos-delay="60">
+
+          <div class="relative aspect-[3/4] overflow-hidden mb-4">
+
+            <img src="flared.webp" alt="SIGNATURE FLARED DENIM" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+
+            <img src="flared1.webp" alt="" class="product-hover-img absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+
+            <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 bg-white/90 backdrop-blur px-3 py-2 flex items-center justify-between gap-2 transition-transform duration-300">
+
+              <span class="text-[10px] tracking-[0.18em]">QUICK ADD</span>
+
+              <div class="flex gap-1">
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">S</span>
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">M</span>
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">L</span>
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">XL</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="text-xs tracking-[0.2em] font-heading">SIGNATURE FLARED DENIM</p>
+
+          <p class="mt-1 text-[10px] tracking-[0.15em] text-black/60">€79.00 EUR</p>
+
+        </button>
+
+
+
+        <button type="button"
+
+                class="group block text-left w-full"
+
+                data-product="sweater"
+
+                data-name="STUDIO GRAPHIC TEE"
+
+                data-price="€15.00 EUR"
+
+                data-images="T-shirt.webp,T-shirt1.webp,T-shirt2.webp,T-shirt3.webp"
+
+                data-description="Fine-gauge knit with dropped shoulders and clean neckline. Soft hand-feel with a minimal, studio-ready silhouette."
+
+                data-category="TOPS"
+
+                data-aos="fade-up"
+
+                data-aos-delay="120">
+
+          <div class="relative aspect-[3/4] overflow-hidden mb-4">
+
+            <img src="T-shirt.webp" alt="STUDIO GRAPHIC TEE" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+
+            <img src="T-shirt1.webp" alt="" class="product-hover-img absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+
+            <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 bg-white/90 backdrop-blur px-3 py-2 flex items-center justify-between gap-2 transition-transform duration-300">
+
+              <span class="text-[10px] tracking-[0.18em]">QUICK ADD</span>
+
+              <div class="flex gap-1">
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">S</span>
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">M</span>
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">L</span>
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">XL</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="text-xs tracking-[0.2em] font-heading">STUDIO GRAPHIC TEE</p>
+
+          <p class="mt-1 text-[10px] tracking-[0.15em] text-black/60">€15.00 EUR</p>
+
+        </button>
+
+
+
+        <button type="button"
+
+                class="group block text-left w-full"
+
+                data-product="tee"
+
+                data-name="PREMIUM KNIT SWEATER"
+
+                data-price="€22.00 EUR"
+
+                data-images="sweater.webp,sweater1.webp,sweater2.webp,sweater3.webp"
+
+                data-description="Relaxed graphic tee with studio artwork and subtle YOUR BRAND* detailing. Cut in a boxy fit for a modern line."
+
+                data-category="TOPS"
+
+                data-aos="fade-up"
+
+                data-aos-delay="180">
+
+          <div class="relative aspect-[3/4] overflow-hidden mb-4">
+
+            <img src="sweater.webp" alt="PREMIUM KNIT SWEATER" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+
+            <img src="sweater1.webp" alt="" class="product-hover-img absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+
+            <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 bg-white/90 backdrop-blur px-3 py-2 flex items-center justify-between gap-2 transition-transform duration-300">
+
+              <span class="text-[10px] tracking-[0.18em]">QUICK ADD</span>
+
+              <div class="flex gap-1">
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">S</span>
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">M</span>
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">L</span>
+
+                <span class="px-1.5 py-0.5 border border-black text-[9px] tracking-[0.15em]">XL</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="text-xs tracking-[0.2em] font-heading">PREMIUM KNIT SWEATER</p>
+
+          <p class="mt-1 text-[10px] tracking-[0.15em] text-black/60">€22.00 EUR</p>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Editorial / Lookbook Section -->
+
+  <section id="lookbook" class="py-20 md:py-32 bg-white">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+
+        <div class="aspect-[3/4] border border-black overflow-hidden" data-aos="fade-up">
+
+          <video src="look1.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline></video>
+
+        </div>
+
+        <div class="aspect-[3/4] border border-black overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+
+          <video src="look2.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline></video>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- Footer -->
+
+  <footer class="py-12 border-t border-black/10 bg-white" data-aos="fade-up">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 text-[11px] tracking-[0.18em]">
+
+        <div class="flex flex-wrap gap-4 md:gap-8">
+
+          <a href="#" class="hover:opacity-70 transition">TERMS OF PURCHASE</a>
+
+          <a href="#" class="hover:opacity-70 transition">PRIVACY POLICY</a>
+
+          <a href="#" class="hover:opacity-70 transition">COOKIE POLICY</a>
+
+          <div class="flex flex-col items-start">
+            <button type="button" 
+                    onclick="copyEmailToClipboard()" 
+                    class="hover:opacity-70 transition cursor-pointer text-[11px] tracking-[0.18em] uppercase">
+              CONTACT
+            </button>
+            <span id="email-status" class="text-[9px] text-black/40 mt-1 lowercase transition-all">
+              sskarletren@gmail.com
+            </span>
+          </div>
+
+        </div>
+
+        <div class="w-full md:w-auto flex flex-col md:flex-row md:items-center gap-3">
+
+          <div class="flex-1 min-w-[220px] border-b md:border border-black/20 flex items-center justify-between px-3 py-2">
+
+            <input type="email" placeholder="ENTER EMAIL FOR UPDATES" class="flex-1 bg-transparent text-[10px] tracking-[0.18em] placeholder-black/40 focus:outline-none" />
+
+            <button type="button" class="ml-3 text-[10px] tracking-[0.22em] hover:opacity-70">SUBSCRIBE</button>
+
+          </div>
+
+          <p class="text-xs tracking-[0.18em] text-black/70 md:text-right">YOUR BRAND* | © 2026</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+  
+  <div class="mt-12 py-12 border-t border-black/10 text-center">
+    <p class="text-[10px] tracking-[0.3em] text-black/50 mb-4 uppercase">Direct Inquiry</p>
+    <a href="https://t.me/freelance_ren" target="_blank" class="group inline-flex flex-col items-center">
+        <span class="text-[14px] tracking-[0.2em] font-heading border-b border-black pb-1 group-hover:opacity-60 transition duration-300">
+            CHAT ON TELEGRAM
+        </span>
+        <span class="text-[9px] tracking-[0.1em] mt-2 opacity-0 group-hover:opacity-100 transition duration-500 uppercase">
+            @freelance_ren
+        </span>
+    </a>
+</div>
+
+
+
+  <!-- Mobile Bottom Navigation -->
+
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-black/10">
+
+    <div class="flex items-center justify-around h-16 px-2">
+
+      <a href="#" class="flex flex-col items-center gap-1 py-2 text-black hover:opacity-70 transition" data-scroll-target="#top">
+
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+
+        <span class="text-[9px] tracking-[0.2em] font-medium">HOME</span>
+
+      </a>
+
+      <a href="#" class="flex flex-col items-center gap-1 py-2 text-black hover:opacity-70 transition" data-scroll-target="#gallery">
+
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+
+        <span class="text-[9px] tracking-[0.2em] font-medium">SHOP</span>
+
+      </a>
+
+      <a href="#" class="flex flex-col items-center gap-1 py-2 -mt-4 text-black hover:opacity-70 transition">
+
+        <span class="text-sm font-semibold tracking-[0.1em] leading-tight">YOUR BRAND*</span>
+
+      </a>
+
+      <a href="#" class="flex flex-col items-center gap-1 py-2 text-black hover:opacity-70 transition" data-scroll-target="#lookbook">
+
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+
+        <span class="text-[9px] tracking-[0.2em] font-medium">LOOKBOOK</span>
+
+      </a>
+
+      <a href="#" id="bag-link-mobile" class="flex flex-col items-center gap-1 py-2 text-black hover:opacity-70 transition">
+
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+
+        <span class="text-[9px] tracking-[0.2em] font-medium">BAG (0)</span>
+
+      </a>
+
+    </div>
+
+  </nav>
+
+  <!-- Product Modal -->
+
+  <div id="product-modal" class="fixed inset-0 z-50 hidden items-end md:items-center justify-center">
+
+    <div id="product-modal-overlay" class="absolute inset-0 bg-black/40"></div>
+
+    <div class="relative z-10 w-full md:max-w-3xl bg-white rounded-t-2xl md:rounded-2xl shadow-xl transform translate-y-full md:translate-y-4 opacity-0 transition-all duration-500" id="product-modal-panel">
+
+      <div class="flex justify-between items-center px-6 pt-5 pb-3 border-b border-black/10">
+
+        <p id="product-modal-name" class="text-xs font-heading tracking-[0.22em]">PRODUCT NAME</p>
+
+        <button type="button" id="product-modal-close" class="text-xs tracking-[0.15em] hover:opacity-70">CLOSE</button>
+
+      </div>
+
+      <div class="px-6 pb-6 pt-4 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+
+        <div class="space-y-3">
+
+          <div class="flex gap-3 overflow-x-auto pb-3 snap-x snap-mandatory">
+
+            <div class="aspect-[3/4] w-40 sm:w-56 md:w-64 bg-smoke overflow-hidden shrink-0 snap-center">
+
+              <img data-modal-image="0" src="" alt="" class="w-full h-full object-cover">
+
+            </div>
+
+            <div class="aspect-[3/4] w-40 sm:w-56 md:w-64 bg-smoke overflow-hidden shrink-0 snap-center">
+
+              <img data-modal-image="1" src="" alt="" class="w-full h-full object-cover">
+
+            </div>
+
+            <div class="aspect-[3/4] w-40 sm:w-56 md:w-64 bg-smoke overflow-hidden shrink-0 snap-center">
+
+              <img data-modal-image="2" src="" alt="" class="w-full h-full object-cover">
+
+            </div>
+
+            <div class="aspect-[3/4] w-40 sm:w-56 md:w-64 bg-smoke overflow-hidden shrink-0 snap-center">
+
+              <img data-modal-image="3" src="" alt="" class="w-full h-full object-cover">
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="flex flex-col justify-between gap-4 md:gap-6">
+
+          <div>
+
+            <p id="product-modal-price" class="text-[11px] tracking-[0.18em] text-black/70 mb-3">€0.00 EUR</p>
+
+            <p id="product-modal-description" class="text-[11px] leading-relaxed tracking-[0.06em] text-black/80">
+
+              Detailed product description for YOUR BRAND* essentials.
+
+            </p>
+
+          </div>
+
+          <div class="mt-2">
+
+            <p class="text-[10px] tracking-[0.18em] mb-2">SIZE</p>
+
+            <div id="product-modal-sizes" class="flex gap-2">
+
+              <button type="button" data-size="S" class="px-3 py-1 border border-black text-[10px] tracking-[0.18em]">S</button>
+
+              <button type="button" data-size="M" class="px-3 py-1 border border-black text-[10px] tracking-[0.18em]">M</button>
+
+              <button type="button" data-size="L" class="px-3 py-1 border border-black text-[10px] tracking-[0.18em]">L</button>
+
+              <button type="button" data-size="XL" class="px-3 py-1 border border-black text-[10px] tracking-[0.18em]">XL</button>
+
+            </div>
+
+            <p id="size-error" class="mt-1 text-[10px] tracking-[0.16em] text-red-500 opacity-0 transition-opacity duration-200">Please select size</p>
+
+          </div>
+
+          <button type="button" id="product-modal-add-to-bag" class="mt-3 w-full border border-black bg-black text-white py-3 text-xs tracking-[0.25em] hover:bg-white hover:text-black transition">
+
+            ADD TO BAG
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+
+    AOS.init({
+
+      duration: 800,
+
+      easing: 'ease-out',
+
+      offset: 50,
+
+      once: true,
+
+    });
+
+
+    // Hero cross-fade slider (3 seconds)
+
+    const slides = document.querySelectorAll('.hero-slide');
+
+    if (slides.length) {
+
+      let currentSlide = 0;
+
+      setInterval(function () {
+
+        slides[currentSlide].classList.remove('active');
+
+        currentSlide = (currentSlide + 1) % slides.length;
+
+        slides[currentSlide].classList.add('active');
+
+      }, 3000);
+
+    }
+
+
+    // Product modal interactions
+
+    const modal = document.getElementById('product-modal');
+
+    const modalPanel = document.getElementById('product-modal-panel');
+
+    const modalOverlay = document.getElementById('product-modal-overlay');
+
+    const modalClose = document.getElementById('product-modal-close');
+
+    const modalName = document.getElementById('product-modal-name');
+
+    const modalPrice = document.getElementById('product-modal-price');
+
+    const modalDescription = document.getElementById('product-modal-description');
+
+    const modalImages = document.querySelectorAll('[data-modal-image]');
+
+
+    function openModalFromButton(btn) {
+
+      const name = btn.getAttribute('data-name') || '';
+
+      const price = btn.getAttribute('data-price') || '';
+
+      const description = btn.getAttribute('data-description') || '';
+
+      const imagesAttr = btn.getAttribute('data-images') || '';
+
+      const images = imagesAttr.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+
+
+      modalName.textContent = name;
+
+      modalPrice.textContent = price;
+
+      modalDescription.textContent = description;
+
+
+      modalImages.forEach(function (imgEl, idx) {
+
+        imgEl.src = images[idx] || images[0] || '';
+
+      });
+
+
+      modal.classList.remove('hidden');
+
+      modal.classList.add('flex');
+
+      requestAnimationFrame(function () {
+
+        modalPanel.classList.remove('translate-y-full');
+
+        modalPanel.classList.remove('opacity-0');
+
+        modalPanel.classList.add('opacity-100');
+
+        modalPanel.classList.add('translate-y-0');
+
+      });
+
+    }
+
+
+    function closeModal() {
+
+      modalPanel.classList.remove('opacity-100', 'translate-y-0');
+
+      modalPanel.classList.add('opacity-0', 'translate-y-full');
+
+      setTimeout(function () {
+
+        modal.classList.add('hidden');
+
+        modal.classList.remove('flex');
+
+      }, 300);
+
+    }
+
+
+    document.querySelectorAll('button[data-product]').forEach(function (btn) {
+
+      btn.addEventListener('click', function () {
+
+        openModalFromButton(btn);
+
+      });
+
+    });
+
+
+    if (modalOverlay) {
+
+      modalOverlay.addEventListener('click', closeModal);
+
+    }
+
+    if (modalClose) {
+
+      modalClose.addEventListener('click', closeModal);
+
+    }
+
+  </script>
+
+  <!-- Cart Drawer -->
+  <div id="cart-overlay" class="fixed inset-0 z-40 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+  <aside id="cart-drawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+
+    <div class="flex items-center justify-between px-6 py-4 border-b border-black/10">
+
+      <p class="text-xs tracking-[0.22em]">BAG</p>
+
+      <button type="button" data-cart-close class="text-[11px] tracking-[0.18em] hover:opacity-70">CLOSE</button>
+
+    </div>
+
+    <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-4 space-y-4 text-[11px] tracking-[0.08em]">
+
+      <p class="text-black/50">Your bag is empty.</p>
+
+    </div>
+
+    <div class="border-t border-black/10 px-6 py-4 space-y-3">
+
+      <div class="flex items-center justify-between text-[11px] tracking-[0.18em]">
+
+        <span>TOTAL</span>
+
+        <span id="cart-total">€0.00 EUR</span>
+
+      </div>
+
+      <button type="button" id="checkout-btn" class="w-full border border-black bg-black text-white py-3 text-xs tracking-[0.25em] hover:bg-white hover:text-black transition">
+        CHECKOUT
+  
+      </button>
+
+    </div>
+
+  </aside>
+  <div id="checkout-overlay" class="fixed inset-0 z-[60] hidden bg-white overflow-y-auto">
+    <div class="max-w-2xl mx-auto px-6 py-12">
+      <div class="flex justify-between items-center mb-12 border-b border-black/10 pb-6">
+        <h2 class="text-xl font-heading tracking-[0.2em]">CHECKOUT</h2>
+        <button type="button" id="checkout-close" class="text-[11px] tracking-[0.18em] hover:opacity-70">BACK TO BAG</button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <form id="checkout-form" class="space-y-6">
+          <p class="text-[10px] tracking-[0.2em] font-semibold border-b border-black pb-2 mb-4">SHIPPING INFORMATION</p>
+          <input type="text" placeholder="FULL NAME" required class="w-full border-b border-black/20 py-2 text-[11px] focus:outline-none focus:border-black transition">
+          <input type="email" placeholder="EMAIL ADDRESS" required class="w-full border-b border-black/20 py-2 text-[11px] focus:outline-none focus:border-black transition">
+          <input type="text" placeholder="SHIPPING ADDRESS" required class="w-full border-b border-black/20 py-2 text-[11px] focus:outline-none focus:border-black transition">
+          <button type="submit" class="w-full bg-black text-white py-4 text-[11px] tracking-[0.25em] border border-black hover:bg-white hover:text-black transition mt-8">PLACE ORDER</button>
+        </form>
+        <div class="bg-smoke p-6">
+          <p class="text-[10px] tracking-[0.2em] font-semibold border-b border-black pb-2 mb-4">ORDER SUMMARY</p>
+          <div id="checkout-summary-items" class="space-y-4 mb-6"></div>
+          <div class="border-t border-black pt-4 flex justify-between items-center text-[12px] font-bold tracking-[0.1em]">
+            <span>TOTAL</span>
+            <span id="checkout-final-total">€0.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="order-success" class="fixed inset-0 z-[70] hidden items-center justify-center bg-white/95 backdrop-blur">
+      <div class="text-center p-8">
+          <h2 class="text-2xl font-heading tracking-[0.3em] mb-4">THANK YOU</h2>
+          <p class="text-[11px] tracking-[0.15em] mb-8">YOUR ORDER HAS BEEN RECEIVED.</p>
+          <button onclick="location.reload()" class="border border-black px-8 py-3 text-[10px] tracking-[0.2em] hover:bg-black hover:text-white transition">RETURN TO SHOP</button>
+      </div>
+  </div>
+  <div id="cart-toast" class="fixed top-4 right-4 z-50 px-4 py-2 bg-black text-white text-[10px] tracking-[0.18em] rounded-full shadow-lg opacity-0 pointer-events-none translate-y-2 transition-all duration-300">
+    ADDED TO BAG
+  </div>
+
+  <script>
+
+    // Smooth scroll for nav and bottom links
+
+    document.querySelectorAll('[data-scroll-target]').forEach(function (trigger) {
+
+      trigger.addEventListener('click', function (e) {
+
+        const targetSelector = trigger.getAttribute('data-scroll-target');
+
+        if (!targetSelector) return;
+
+        const target = document.querySelector(targetSelector);
+
+        if (!target) return;
+
+        e.preventDefault();
+
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      });
+
+    });
+
+
+    // Search overlay interactions
+
+    (function () {
+
+      const searchToggle = document.getElementById('search-toggle');
+
+      const searchOverlay = document.getElementById('search-overlay');
+
+      const searchClose = document.getElementById('search-close');
+
+
+      function openSearchOverlay() {
+
+        if (!searchOverlay) return;
+
+        searchOverlay.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+
+        searchOverlay.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+      }
+
+
+      function closeSearchOverlay() {
+
+        if (!searchOverlay) return;
+
+        searchOverlay.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+
+        searchOverlay.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+      }
+
+
+      if (searchToggle) {
+
+        searchToggle.addEventListener('click', function () {
+
+          openSearchOverlay();
+
+        });
+
+      }
+
+
+      if (searchClose) {
+
+        searchClose.addEventListener('click', function () {
+
+          closeSearchOverlay();
+
+        });
+
+      }
+
+    })();
+
+
+    // Size selection, cart system, and gallery filters
+
+    (function () {
+
+      const sizeButtons = document.querySelectorAll('#product-modal-sizes [data-size]');
+
+      const sizeError = document.getElementById('size-error');
+
+      let selectedSize = null;
+
+
+      function resetSizeSelection() {
+
+        selectedSize = null;
+
+        sizeButtons.forEach(function (btn) {
+
+          btn.classList.remove('bg-black', 'text-white', 'size-shake');
+
+        });
+
+        if (sizeError) {
+
+          sizeError.classList.add('opacity-0');
+
+        }
+
+      }
+
+
+      sizeButtons.forEach(function (btn) {
+
+        btn.addEventListener('click', function () {
+
+          selectedSize = btn.getAttribute('data-size');
+
+          sizeButtons.forEach(function (b) {
+
+            b.classList.remove('bg-black', 'text-white', 'size-shake');
+
+          });
+
+          btn.classList.add('bg-black', 'text-white');
+
+          if (sizeError) {
+
+            sizeError.classList.add('opacity-0');
+
+          }
+
+        });
+
+      });
+
+
+      // Reset size selection whenever modal opens by watching name changes
+
+      const modalNameEl = document.getElementById('product-modal-name');
+
+      if (modalNameEl) {
+
+        const observer = new MutationObserver(function () {
+
+          resetSizeSelection();
+
+        });
+
+        observer.observe(modalNameEl, { childList: true });
+
+      }
+
+
+      // Cart logic
+
+      const cartDrawer = document.getElementById('cart-drawer');
+
+      const cartOverlayEl = document.getElementById('cart-overlay');
+
+      const cartItemsContainer = document.getElementById('cart-items');
+
+      const cartTotalEl = document.getElementById('cart-total');
+
+      const bagDesktop = document.getElementById('bag-link-desktop');
+
+      const bagMobile = document.getElementById('bag-link-mobile');
+
+      const bagMobileLabel = bagMobile ? bagMobile.querySelector('span:last-child') : null;
+
+      const cartCloseButtons = document.querySelectorAll('[data-cart-close]');
+
+      const addToBagButton = document.getElementById('product-modal-add-to-bag');
+
+      const modalPriceEl = document.getElementById('product-modal-price');
+
+      const toastEl = document.getElementById('cart-toast');
+
+
+      let cartItems = [];
+
+
+      function getCartCount() {
+
+        return cartItems.reduce(function (sum, item) { return sum + item.qty; }, 0);
+
+      }
+
+
+      function updateBagLabels() {
+
+        const count = getCartCount();
+
+        const label = 'BAG (' + count + ')';
+
+        if (bagDesktop) bagDesktop.textContent = label;
+
+        if (bagMobileLabel) bagMobileLabel.textContent = label;
+
+      }
+
+
+      function parsePrice(priceStr) {
+
+        if (!priceStr) return 0;
+
+        const numeric = parseFloat(priceStr.replace(/[^\d.]/g, ''));
+
+        return isNaN(numeric) ? 0 : numeric;
+
+      }
+
+
+      function renderCart() {
+
+        if (!cartItemsContainer) return;
+
+        cartItemsContainer.innerHTML = '';
+
+        if (!cartItems.length) {
+
+          cartItemsContainer.innerHTML = '<p class="text-black/50">Your bag is empty.</p>';
+
+          if (cartTotalEl) {
+
+            cartTotalEl.textContent = '€0.00 EUR';
+
+          }
+
+          updateBagLabels();
+
+          return;
+
+        }
+
+
+        let total = 0;
+
+        cartItems.forEach(function (item, index) {
+
+          const row = document.createElement('div');
+
+          row.className = 'flex items-start justify-between gap-3';
+
+
+          const left = document.createElement('div');
+
+          left.className = 'text-[11px] tracking-[0.08em]';
+
+          left.innerHTML =
+            '<p class="font-heading">' + item.name + '</p>' +
+            (item.size ? '<p class="text-black/60 mt-0.5">SIZE ' + item.size + '</p>' : '') +
+            '<p class="text-black/60 mt-0.5">QTY ' + item.qty + '</p>';
+
+
+          const right = document.createElement('div');
+
+          right.className = 'flex flex-col items-end gap-1 text-[11px] tracking-[0.08em]';
+
+          const priceEl = document.createElement('span');
+
+          priceEl.textContent = item.price;
+
+          const removeBtn = document.createElement('button');
+
+          removeBtn.type = 'button';
+
+          removeBtn.className = 'text-[10px] tracking-[0.18em] text-black/60 hover:text-black';
+
+          removeBtn.textContent = 'REMOVE';
+
+          removeBtn.addEventListener('click', function () {
+
+            cartItems.splice(index, 1);
+
+            renderCart();
+
+          });
+
+          right.appendChild(priceEl);
+
+          right.appendChild(removeBtn);
+
+
+          row.appendChild(left);
+
+          row.appendChild(right);
+
+          cartItemsContainer.appendChild(row);
+
+          total += item.priceValue * item.qty;
+
+        });
+
+
+        if (cartTotalEl) {
+
+          cartTotalEl.textContent = '€' + total.toFixed(2) + ' EUR';
+
+        }
+
+
+        updateBagLabels();
+
+      }
+
+
+      function openCart() {
+
+        if (!cartDrawer || !cartOverlayEl) return;
+
+        cartOverlayEl.classList.remove('opacity-0', 'pointer-events-none');
+
+        cartOverlayEl.classList.add('opacity-100');
+
+        cartDrawer.classList.remove('translate-x-full');
+
+      }
+
+
+      function closeCart() {
+
+        if (!cartDrawer || !cartOverlayEl) return;
+
+        cartOverlayEl.classList.add('opacity-0', 'pointer-events-none');
+
+        cartOverlayEl.classList.remove('opacity-100');
+
+        cartDrawer.classList.add('translate-x-full');
+
+      }
+
+
+      function addItemToCart(product) {
+
+        if (!product || !product.name) return;
+
+        const sizeKey = product.size || '';
+
+        const existing = cartItems.find(function (item) {
+
+          return item.name === product.name && item.size === sizeKey;
+
+        });
+
+        const priceValue = parsePrice(product.price);
+
+
+        if (existing) {
+
+          existing.qty += 1;
+
+        } else {
+
+          cartItems.push({
+            name: product.name,
+            size: sizeKey,
+            price: product.price,
+            priceValue: priceValue,
+            qty: 1
+          });
+
+        }
+
+
+        renderCart();
+
+      }
+
+
+      function showToast(message) {
+
+        if (!toastEl) return;
+
+        toastEl.textContent = message;
+
+        toastEl.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+
+        toastEl.classList.add('opacity-100', 'translate-y-0');
+
+        setTimeout(function () {
+
+          toastEl.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+
+          toastEl.classList.remove('opacity-100', 'translate-y-0');
+
+        }, 2000);
+
+      }
+
+
+      if (bagDesktop) {
+
+        bagDesktop.addEventListener('click', function (e) {
+
+          e.preventDefault();
+
+          openCart();
+
+        });
+
+      }
+
+
+      if (bagMobile) {
+
+        bagMobile.addEventListener('click', function (e) {
+
+          e.preventDefault();
+
+          openCart();
+
+        });
+
+      }
+
+
+      cartCloseButtons.forEach(function (btn) {
+
+        btn.addEventListener('click', function () {
+
+          closeCart();
+
+        });
+
+      });
+
+
+      if (cartOverlayEl) {
+
+        cartOverlayEl.addEventListener('click', function () {
+
+          closeCart();
+
+        });
+
+      }
+
+
+      if (addToBagButton) {
+
+        addToBagButton.addEventListener('click', function () {
+
+          const name = modalNameEl ? modalNameEl.textContent.trim() : '';
+
+          const price = modalPriceEl ? modalPriceEl.textContent.trim() : '';
+
+          if (!selectedSize) {
+
+            sizeButtons.forEach(function (btn) {
+            }, 400);
+            return;
+          }
+
+          addItemToCart({
+            name: name,
+            price: price,
+            size: selectedSize
+          });
+
+          closeModal();
+          openCart();
+          showToast('ADDED TO BAG');
+        });
+      }
+
+      // --- ЛОГИКА КНОПКИ CHECKOUT (СТАВИМ ОТДЕЛЬНО) ---
+      const checkoutBtn = document.querySelector('#cart-drawer button.w-full');
+      const checkoutOverlay = document.getElementById('checkout-overlay');
+      const checkoutClose = document.getElementById('checkout-close');
+
+      if (checkoutBtn) {
+          checkoutBtn.onclick = function() {
+              // Проверяем наличие товаров в массиве cartItems
+              if (typeof cartItems === 'undefined' || cartItems.length === 0) {
+                  alert("Your bag is empty");
+                  return;
+              }
+
+              // Закрываем боковую корзину
+              document.getElementById('cart-drawer').classList.add('translate-x-full');
+              document.getElementById('cart-overlay').classList.add('opacity-0', 'pointer-events-none');
+
+              // Показываем окно оформления
+              if (checkoutOverlay) {
+                  checkoutOverlay.classList.remove('hidden');
+                  
+                  // Обновляем список товаров в окне оплаты
+                  const summaryItems = document.getElementById('checkout-summary-items');
+                  if (summaryItems) {
+                      summaryItems.innerHTML = '';
+                      cartItems.forEach(item => {
+                          summaryItems.innerHTML += `
+                              <div class="flex justify-between text-[10px] tracking-[0.1em] mb-2">
+                                  <span>${item.name} (${item.size}) x${item.qty}</span>
+                                  <span>${item.price}</span>
+                              </div>`;
+                      });
+                  }
+                  
+                  // Синхронизируем итоговую цену
+                  const finalTotal = document.getElementById('checkout-final-total');
+                  const cartTotal = document.getElementById('cart-total');
+                  if (finalTotal && cartTotal) {
+                      finalTotal.textContent = cartTotal.textContent;
+                  }
+              }
+          };
+      }
+
+      // Кнопка назад
+      if (checkoutClose) {
+          checkoutClose.onclick = () => checkoutOverlay.classList.add('hidden');
+      }
+
+      // Отправка формы (заглушка)
+      const checkoutForm = document.getElementById('checkout-form');
+      if (checkoutForm) {
+          checkoutForm.onsubmit = (e) => {
+              e.preventDefault();
+              document.getElementById('order-success').classList.remove('hidden');
+              document.getElementById('order-success').classList.add('flex');
+          };
+      }
+
+      // Запуск начальной отрисовки
+      renderCart();
+
+    })(); // Конец главной функции
+  </script>
+  <script>
+    function copyEmailToClipboard() {
+        const email = "sskarletren@gmail.com";
+        
+        // Копируем текст в буфер обмена
+        navigator.clipboard.writeText(email).then(() => {
+            const status = document.getElementById('email-status');
+            const originalText = status.innerText;
+            
+            // Меняем текст на уведомление
+            status.innerText = "COPIED TO CLIPBOARD!";
+            status.style.color = "#000";
+            status.style.fontWeight = "bold";
+            
+            // Возвращаем как было через 2 секунды
+            setTimeout(() => {
+                status.innerText = originalText;
+                status.style.color = "";
+                status.style.fontWeight = "";
+            }, 2000);
+            
+            // Попытка открыть почту (на случай если она все же работает)
+            window.location.href = "mailto:" + email;
+        }).catch(err => {
+            // Если браузер запретил копирование, просто пытаемся открыть почту
+            window.location.href = "mailto:" + email;
+        });
+    }
+    </script>
+</body>
+</html>
